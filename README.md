@@ -2,6 +2,8 @@
 
 # Your AI Kitchen (YAK)
 
+[![Your AI Kitchen (YAK) MCP connector – tool definition quality and endpoint health on Glama](https://glama.ai/mcp/connectors/com.youraikitchen/yak/badges/score.svg)](https://glama.ai/mcp/connectors/com.youraikitchen/yak)
+
 *Family makes the memories. We just save the ingredients.*
 
 Your AI Kitchen is a recipe box that lives inside the AI chat you already use. Ask ChatGPT or Grok to save a recipe, scale it, plan the week's dinners or build a shopping list, and it all lands in your own recipe box at [youraikitchen.com](https://youraikitchen.com).
