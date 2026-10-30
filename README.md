@@ -6,14 +6,50 @@
 
 *Family makes the memories. We just save the ingredients.*
 
-Your AI Kitchen is a recipe box that lives inside the AI chat you already use. Ask ChatGPT or Grok to save a recipe, scale it, plan the week's dinners or build a shopping list, and it all lands in your own recipe box at [youraikitchen.com](https://youraikitchen.com).
+Your AI Kitchen is a recipe box that lives inside the AI assistant you already use: Claude, ChatGPT Plus, Grok, Cursor, VS Code or any app that supports custom MCP connectors. Ask it to save a recipe and YAK files your recipes in your own recipe box at [youraikitchen.com](https://youraikitchen.com). It scales recipes to any number of servings, plans menus, builds shopping lists sorted by aisle and shares recipes with your family.
 
 This repository is for information only. It holds no app code. YAK is a hosted service.
 
 ## Connect
 
+YAK is a remote MCP server. It works with any AI app or client that supports custom (remote) MCP connectors.
+
 **Server URL:** `https://youraikitchen.com/mcp`
-**Transport:** Streamable HTTP · **Sign-in:** OAuth (you sign in to your YAK account; nothing to copy or paste)
+**Transport:** Streamable HTTP · **Auth:** OAuth. When you connect, your client opens a YAK sign-in page; sign in and click **Allow**. There are no API keys to copy or paste.
+
+You need a YAK account on a paid plan (Home Cook includes a 14-day trial; see [Plans](#plans)).
+
+### Claude (claude.ai / Claude Desktop)
+**Settings** → **Connectors** → **Add custom connector**, paste the server URL, then sign in when prompted.
+
+### Claude Code
+```bash
+claude mcp add --transport http yak https://youraikitchen.com/mcp
+```
+Then run `/mcp` in Claude Code to sign in.
+
+### Cursor (`~/.cursor/mcp.json` or `.cursor/mcp.json`)
+```json
+{
+  "mcpServers": {
+    "yak": { "url": "https://youraikitchen.com/mcp" }
+  }
+}
+```
+
+### VS Code (`.vscode/mcp.json`)
+```json
+{
+  "servers": {
+    "yak": { "type": "http", "url": "https://youraikitchen.com/mcp" }
+  }
+}
+```
+
+### Other clients
+Add a remote / Streamable HTTP MCP server with the URL above and complete the OAuth sign-in.
+
+### Quick examples: ChatGPT Plus and Grok
 
 **ChatGPT Plus** (chatgpt.com, in a web browser)
 1. Open **Plugins**, click **+** → **Add custom MCP server**.
@@ -55,7 +91,7 @@ Then try: *"Save my chili recipe to Your AI Kitchen."*
 
 ## Plans
 
-Paid, with a 14-day free trial (card required). No free tier.
+Paid plans. Home Cook includes a 14-day trial (card required).
 
 | Plan | Price | Includes |
 |---|---|---|
@@ -67,6 +103,11 @@ Paid, with a 14-day free trial (card required). No free tier.
 
 <img src="shot-recipes.png" width="240"> <img src="shot-recipe.png" width="240"> <img src="shot-scale.png" width="240">
 
+## Find YAK in
+
+- **Official MCP Registry:** `com.youraikitchen/yak` ([registry API entry](https://registry.modelcontextprotocol.io/v0/servers?search=com.youraikitchen/yak))
+- **Glama:** [glama.ai/mcp/connectors/com.youraikitchen/yak](https://glama.ai/mcp/connectors/com.youraikitchen/yak)
+
 ## Links
 
 - Website: https://youraikitchen.com
@@ -74,4 +115,3 @@ Paid, with a 14-day free trial (card required). No free tier.
 - Privacy: https://youraikitchen.com/privacy
 - Terms: https://youraikitchen.com/terms
 - Support: support@youraikitchen.com
-- MCP Registry: `com.youraikitchen/yak`
